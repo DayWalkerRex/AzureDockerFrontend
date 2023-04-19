@@ -1,0 +1,48 @@
+<!-- SASKIA -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="bookOverview.js"></script>
+    <script src="navbar.js"></script>
+    <script src="search.js"></script>
+
+    <title>booksOverview</title>
+</head>
+
+<body>
+    <div id="topnav"> </div>
+
+    <h1>Bibliotheek</h1>
+
+    <!-- SearchBook inputfield, searches when releasing a key -->
+    <label><input type="text" placeholder="Typ een zoekopdracht in" id="search-book"
+            onkeyup="searchTable('bookInformation', 'search-book')"></label>
+
+
+    <!-- BookInformation tabel header and empty rows, filled in in booksOverview.js -->
+    <table id="bookInformation">
+        <thead>
+            <tr>
+                <th><b></b></th>
+                <th><b>Titel</b></th>
+                <th><b>Auteur</b></th>
+                <th><b>ISBN</b></th>
+                <th><b>Aantal exemplaren</b></th>
+                <th><b>Aantal uitgeleend</b></th>
+                <th><b>Tags</b></th>
+                <th><b>Archived</b></th>
+                <th><b>Reserveren</b></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+
+</html>

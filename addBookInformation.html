@@ -1,0 +1,55 @@
+<!-- JESSICA MARTINE SASKIA -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Tag Dropdown</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="navbar.js"></script>
+
+    <title>addBookInformation</title>
+
+</head>
+    <body>
+
+        <div id ="topnav"></div>
+
+        <h1>Boek toevoegen</h1>
+        <h2>Voeg een nieuwe titel toe:</h2>
+
+        <!-- Form with all input needed for creating a bookInformation-->
+        <!-- <form action="javascript:addBookInformation();">  -->
+        <form>
+            <label for="input-image">Image</label> 
+            <input type="url" id="input-image" required><br> 
+            <label for="input-title">Titel</label> 
+            <input type="text" id="input-title" required><br>
+            <label for="input-author">Schrijver</label>
+            <input type="text" id="input-author" required><br>
+            <label for="input-isbn">ISBN</label>
+            <input type="text" id="input-isbn" pattern="[0-9]{10,13}$" title="ISBN bestaat uit 10 tot 13 cijfers" required><br>
+            <label for="input-numCopies">Aantal kopieën</label> <!--OO-#214 input for number of book copies -->
+            <input type="number" id="input-numCopies" min=0 title="Moet minimaal nul zijn" required><br>
+
+            <!-- ST: Make a dropdown list framework that gives options from the tag list while typing -->
+            <label for="tag-dropdown">Kies een tag:</label>
+            <input list="tag-dropdown" name="tag" id="input-tag" multiple />
+            <datalist id="tag-dropdown"></datalist>
+
+            <!-- ST: A container in which the selected tags will be displayed -->
+            <div id="tags-container">
+                <label for="selected-tags">Geselecteerde tags:</label>
+                <div id="selected-tags"></div>
+            </div>
+                
+            <button id="confirm-button">Bevestigen</button> 
+        </form>
+
+        <script src="addBookInformation.js"></script>
+        
+    </body>
+</html>
