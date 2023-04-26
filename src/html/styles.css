@@ -1,29 +1,65 @@
 /* TOMMY */
+
+@import url('https://fonts.cdnfonts.com/css/euclid-flex');
+
+
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
-  td, th {
+  td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+  }
+
+  th {
+    border: 3px solid #888888;
+    background-color: #00e600;
+    text-align: left;
+    padding: 8px;
+    color: white;
   }
   
   tr:nth-child(even) {
     background-color: #dddddd;
   }
 
+  tr:nth-child(odd) {
+    background-color: #979797;
+  }
+
+  tr:hover {background-color: #969696;}
 
   body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Euclid Square', sans-serif;
+    /* background-image: url(https://assets.weforum.org/article/image/hySrQhk9QgN45B-0z8PR0bd8ZRyDZ9LnvzPSGaIb91Q.jpg);
+    background-repeat: no-repeat; */
+    /* background: linear-gradient(90deg, rgba(0,130,0,0.4) 35%, rgba(0,230,0,0.2) 100%); */
+    background-color: rgba(0,130,0,0.3);
+    height: 100%;
+    background-size: cover;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #5a5a5a;
+    font-size: 50px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #5a5a5a;
+    font-size: 20px;
   }
   
   .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #5a5a5a;
   }
   
   .topnav a {
@@ -41,13 +77,13 @@ table {
   }
   
   .topnav a.active {
-    background-color: #04AA6D;
+    background-color: #00e600;
     color: white;
   }
 
   /* Style the header */
 header {
-  background-color: #666;
+  background-color: #969696;
   padding: 30px;
   text-align: center;
   font-size: 35px;
@@ -64,7 +100,6 @@ header {
     'left right';
   grid-template-columns: 1fr 3fr;
   gap: 10px;
-  background-color: #4fb180;
   padding: 10px;
   height: 500px;
 
@@ -85,4 +120,309 @@ header {
 }
 
 
-  
+form:not(#add-copy-form) {
+  background-color: rgba(0,130,0,0.4);
+  width: 50%;
+  margin-left: 25%;
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+input[type=submit]:hover {
+  background-color: #00e600;
+}
+
+input[type=submit] {
+  width: 50%;
+  background: rgba(0,230,0,0.5);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 25%;
+  margin-right: auto;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+input[type=text]:not(.search), input[type=email], input[type=password], input[type=url], input[type=number], #input-tag {
+  width: 50%;
+  padding: 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border-radius:10px;
+  margin-left: 25%;
+  margin-right: auto;
+  font-size: x-large;
+
+}
+
+select {
+  width: 60%;
+  padding: 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border-radius:10px;
+  margin-left: 0%;
+  margin-right: auto;
+  font-size: x-large;
+
+}
+
+input[type=number] {
+  height: 30px;
+  text-align: center;
+  font-size: xx-large;
+}
+
+input[type=number]:hover::-webkit-inner-spin-button {  
+  width: 70px;
+  height: 30px;
+}
+
+
+input[type=text]:focus {
+  background-color: rgb(100, 100, 100);
+  color: white;
+
+}
+
+input[type=email]:focus {
+  background-color: rgb(100, 100, 100);
+  color: white;
+}
+
+input[type=password]:focus {
+  background-color: rgb(100, 100, 100);
+  color: white;
+}
+
+input[type=url]:focus {
+  background-color: rgb(100, 100, 100);
+  color: white;
+}
+
+input[type=number]:focus {
+  background-color: rgb(100, 100, 100);
+  color: white;
+}
+
+
+.radio-button {
+  margin: 10px;
+  text-align: center;
+}
+
+.radio-button input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radio-button label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 1px solid #5a5a5a;
+    border-radius: 4px;
+}
+
+.radio-button label:hover {
+  background-color: #dfd;
+}
+
+.radio-button input[type="radio"]:focus + label {
+    border: 4px  #1a1a1a;
+    border: 50px  #1a1a1a;
+}
+
+.radio-button input[type="radio"]:checked + label {
+    background-color: rgb(21, 184, 212);
+    border-color: rgb(25, 0, 252);
+    border: 50px  #1a1a1a;
+}
+
+.search {
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 50%;
+    padding: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-radius:10px;
+    margin-right: auto;
+    color: #ffffff;
+}
+
+label {
+  color: #5a5a5a;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  padding: 3px;
+  font-size: 20px;
+}
+
+button:not(#cancel-button){
+  background: rgba(0,230,0,0.8);
+  border: 2px solid grey;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button:not(#arhive-button){
+  background: rgba(0,230,0,0.8);
+  border: 2px solid grey;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button:not(#book-detail-assign-button){
+  background: rgba(0,230,0,0.8);
+  border: 2px solid grey;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button:hover :not(#cancel-button){
+  background-color: #00e600;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.search-container {
+  text-align: center;
+}
+
+#navbarImg {
+  height:2.5em;
+  float: right;
+  margin-right: 3%;
+}
+
+#reservationButton {
+  display:inline-block;
+  width: 100%;
+}
+
+#tag-span {
+  text-align: center;
+}
+
+#tags-container {
+  text-align: center;
+}
+
+#cancel-button {
+  font-size: x-large;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+cancel-button:hover {
+  background-color: #5a5a5a;
+}
+
+#add-copy-form {
+  width: 100%;
+  margin-right: auto;
+  border-radius: 30px;
+}   
+
+#book-overview-body {
+  background-image: url("books.jpg");
+    background-repeat: no-repeat;
+}
+
+.info-user {
+  width: 25%;
+  border: 5px solid white;
+  margin-left: 10%;
+  padding: 10px;
+  box-shadow: 8px 8px 5px #444;
+
+}
+
+.info-user ul {
+  font-size: large;
+  color: #5a5a5a;
+
+}
+
+#archive-user-button{
+  width: fit-content;
+  text-align: center;
+  margin-right: auto;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  background: rgba(0,230,0,0.5);
+  color: white;
+}
+
+/* Rounded border */
+hr.rounded {
+  margin-top: 50px;
+  border-top: 8px solid #bbb;
+  border-radius: 5px;
+  box-shadow: 8px 8px 5px #444;
+
+}
+
+.bookOverviewTitleColumn:hover {
+  cursor: pointer;
+}
+
+#book-detail-assign-button {
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+  width: 50%;
+  background: rgba(0,230,0,0.5);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 25%;
+  margin-right: auto;
+  font-size: 20px;
+  margin-top: 10px;
+  border: 10px black;
+}
+
+#library-h1 {
+  color: white;
+}
+
+#bookTitle {
+  color: white;
+}
+
+#book-detail-h2 {
+  color: white;
+}

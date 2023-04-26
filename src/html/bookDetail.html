@@ -1,46 +1,92 @@
 <!-- Tommy -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="styles.css">
-        <script src="bookDetail.js"></script>
-        <script src="navbar.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Book Detail</title>
-    </head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="bookDetail.js"></script>
+  <script src="navbar.js"></script>
+  <script src="search.js"></script>
 
-    <body>
+  <title>Boekpagina</title>
+</head>
 
-        <!-- Create a container with image and information of the book -->
-        <div id ="topnav"> </div>
-          
-          <div class="info-container">
-            <div class="info-image">
-              <img id="bookImage" src="" alt="Book Image">
-            </div>  
-            
-            <div class="info-text">
-                <h2 id="bookTitle"></h2>
-                <ul>
-                    <li><p id="bookAuthor"></p></li>
-                    <li><p id="bookISBN"></p></li>
-                    <li><p id="bookNumCopies"></p></li>
-                    <li><p id="bookNumRented"></p></li>
-                    <li><p id="bookTags"></p></li>
-                    <li><p id="bookArchivedBook"></p></li>
-                  </ul>
-                </div>
-        </div>
+<body>
 
-      <!--  JB: Create a field to add a number of copies -->
-      <form action="javascript:addCopies()">
-        <input type="number" min = "1" placeholder= "Voer aantal kopieën in" id="newNumCopy" required>
+  <!-- Create a container with image and information of the book -->
+  <div id="topnav"> </div>
+
+  <div class="info-container">
+    <div class="info-image">
+      <img id="bookImage" src="" alt="Book Image">
+    </div>
+
+    <div class="info-text">
+      <h2 id="bookTitle"></h2>
+      <ul>
+        <li>
+          <p id="book-author"></p>
+        </li>
+        <li>
+          <p id="book-ISBN"></p>
+        </li>
+        <li>
+          <p id="book-num-copies"></p>
+        </li>
+        <li>
+          <p id="book-num-available"></p> <!--OO : #253 Changed column id-->
+        </li>
+        <li>
+          <p id="book-tags"></p>
+        </li>
+        <li>
+          <p id="book-archived-book"></p>
+        </li>
+      </ul>
+
+      <form action="javascript:addCopies()" id="add-copy-form">
+        <input type="number" min="1" placeholder="Voer aantal kopieën in" id="newNumCopy" required>
         <input type="submit" value="Kopieën toevoegen">
       </form>
-       
-    </body>
+
+      <!-- BN: creates a button and invisible search bar, when button is clicked, a table with users and buttons (see the js file) appears
+    as well as the search bar becoming visible-->
+    </div>
+
+    <!-- JB-#257: Make table to see bookCopies -->
+    <div class="copy-container">
+      <h2 id="book-detail-h2">Kopieën</h2>
+      <table id="bookCopy">
+        <thead>
+          <tr>
+            <th><b>Boeknummer</b></th>
+            <th><b>Beschikbaarheid</b></th>
+            <!-- <th><b>Archiveren</b></th> -->
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="buttons">
+      <h2 id="book-detail-h2" >Toewijzen</h2>
+      <button onclick="listUsersToAssign()" id="book-detail-assign-button">Toewijzen</button>
+      <input type="text" id="searchTerm" onkeyup="searchTable('users', 'searchTerm')" placeholder="Zoeken..."
+        style="display: none;"></input>
+      <table id="users">
+      </table>
+    </div>
+
+
+    <!--  JB: Create a field to add a number of copies -->
+
+
+</body>
+
 </html>

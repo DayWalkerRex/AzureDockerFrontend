@@ -1,0 +1,81 @@
+<!-- SASKIA -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="userDetail.js"></script>
+    <script src="navbar.js"></script>
+    <script src="search.js"></script>
+
+    <title>Gebruikersgegevens</title>
+</head>
+
+<body>
+
+    <!--ST: Create a container with image and information of the book -->
+    <div id="topnav"> </div>
+
+    <h1>Account</h1>  <!-- TL: added this -->
+
+    <div class="info-user">
+        <ul>
+            <li><p id="first-name"></p></li>
+            <li><p id="last-name"></p></li>
+            <li><p id="email"></p></li>
+            <li><p id="admin-status"></p></li>
+          </ul>
+
+          <button id="archive-user-button" onclick="archiveUser()">Gebruiker archiveren</button> 
+
+        </div>
+
+        <div class="buttons">
+            <h2 id="assign-book-h2">Een boek toewijzen</h2>
+            <button onclick="listBooksToAssign()" id="book-detail-assign-button">Toewijzen</button>
+            <input type="text" id="searchTerm" onkeyup="searchTable('books', 'searchTerm')" placeholder="Zoeken..." style="display: none;"></input>
+            <table id="books">
+            </table>
+        </div>
+    <hr class="rounded">
+
+
+    <h2>Gereserveerd</h2>
+
+    <table id="book-reserved-overview">
+        <thead>
+            <tr>
+                <th><b>Titel</b></th>
+                <th><b>Auteur</b></th>
+                <th><b>ISBN</b></th>
+                <th><b>Reserveringsdatum</b></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <h2>In bezit</h2>
+
+    <table id="book-possession-overview">
+        <thead>
+            <tr>
+                <th><b>Titel</b></th>
+                <th><b>Auteur</b></th>
+                <th><b>ISBN</b></th>
+                <th><b>Leendatum</b></th>
+                <th><b>Geleende kopie</b></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    </div>
+
+</body>
+
+</html>

@@ -6,17 +6,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Tag Dropdown</title>
+    <title>Reserveringen</title>
 
     <link rel="stylesheet" href="styles.css">
     <script src="navbar.js"></script>
     <script src="reservationPage.js"></script>
+    <script src="search.js"></script>
 
 </head>
 
 <body>
     <div id="topnav"> </div>
 
+    <h1>Reserveringen</h1>
+
+    <!-- JB: rearch bar to find reservation -->
+    <label><input type="text" placeholder="Vul een zoekopdracht in" id="search-reservation" class="search"
+        onkeyup="searchTable('reservations', 'search-reservation')"></label>
+    
     <!-- ms: empty table with headers that get filled in reservationPage.js -->
     <table id="reservations">
         <thead>
@@ -26,6 +33,7 @@
                 <th><b>Email</b></th>
                 <th><b>Boektitel</b></th>
                 <th><b>Datum</b></th>
+                <th><b>Toewijzen</b></th>
             </tr>
         </thead>
         <tbody>

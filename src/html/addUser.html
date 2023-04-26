@@ -13,7 +13,7 @@
         <script src="addUser.js"></script>
         <script src="navbar.js"></script>
 
-        <title>addUser</title>
+        <title>Gebruiker Toevoegen</title>
 
     </head>
 
@@ -28,27 +28,38 @@
         <!--Form with all input needed for creating a user-->
         <form action="javascript:addUser();">  
             <label for="input-firstname">Voornaam</label> 
-            <input type="text" id="input-firstname" pattern="[A-Za-z]+" title="Alleen letters" required><br>
+            <input type="text" id="input-firstname" pattern="[A-Za-z\s]+" title="Alleen letters" required><br> <!--TL: added spaces to pattern-->
+
             <label for="input-lastname">Achternaam</label>
-            <input type="text" id="input-lastname" pattern="[A-Za-z]+" title="Alleen letters" required><br>
+            <input type="text" id="input-lastname" pattern="[A-Za-z\s]+" title="Alleen letters" required><br> <!--TL: added spaces to pattern-->
+
             <label for="input-email">Email</label>
             <input type="email" id="input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" title="xyz@something.com" required><br>
             <label for="input-password">Wachtwoord</label>
             <input type="password" id="input-password" required><br>
-            <label for="isAdmin">Type Gebruiker</label>
-            <input type="radio" checked name="isAdmin" id="input-isAdmin-1" value="0"> user 
-            <input type="radio"  name="isAdmin" id="input-isAdmin-2" value="1"> admin <br>
+            <label for="isAdmin">Type gebruiker</label>
+            <!-- TL: #232 added labels for input for CSS and put in div-->
+            <div class="radio-button">
+                <input type="radio" name="isAdmin" id="input-isAdmin-1" value="0" required>  
+                <label for="input-isAdmin-1">Gebruiker</label> 
+                <input type="radio" name="isAdmin" id="input-isAdmin-2" value="1" required> 
+                <label for="input-isAdmin-2">Administrator</label>
+            </div>
+            
 
-            <input type="submit" value="Gebruiker Toevoegen">   
+            <input type="submit" value="Gebruiker toevoegen" id="add-user-btn">   
 
         </form>
         
-        <!--Button for retrieving all users-->
+        <!-- TL: commented this out because we have a userOverview now -->
+        <!-- Button for retrieving all users
         <h2>Alle gebruikers</h2>
         <button onclick="retrieveUsers()">Laat alle gebruikers zien</button>
 
-        <!--Table to show all users-->
+        Table to show all users
         <table id="users">
-        </table>    
+        </table>     
+        -->
+
     </body>
 </html>

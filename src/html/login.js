@@ -29,7 +29,6 @@ function login() {
         }
     })
     .catch(error => {
-        console.error(error);
-        alert('Fout opgetreden')
+        alert('Fout opgetreden ' + error)
     });
 }

@@ -4,7 +4,6 @@ function loanOverview() {
     fetch('http://localhost:8080/api/userloan/loaned')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             let table = document.getElementById("loan-overview");
 
             // ms: loop through each user
@@ -13,7 +12,7 @@ function loanOverview() {
                 let row = table.insertRow();
 
                 let idCell = row.insertCell(0);
-                idCell.innerHTML = loanOverviewDto.idTitle + "." + loanOverviewDto.idCopy;
+                idCell.innerHTML = loanOverviewDto.bookInformationId + "." + loanOverviewDto.copyNr;
 
                 let bookTitleCell = row.insertCell(1);
                 bookTitleCell.innerHTML = loanOverviewDto.title;
@@ -40,8 +39,60 @@ function loanOverview() {
 
                 let dateCell = row.insertCell(5);
                 dateCell.innerHTML = dateFormatted;
+
+                //MS: Maken an return cell and input a button that calls the returnBook function
+                let returnCell = row.insertCell(6);
+                returnCell.innerHTML = `<button onclick = "returnBook('${loanOverviewDto.userLoanId}','${loanOverviewDto.title}','${loanOverviewDto.firstName}','${loanOverviewDto.lastName}','${dateFormatted}')" >Inleveren</button>`;
+
+                let lostCell = row.insertCell(7);
+                lostCell.innerHTML = `<button onclick = "lostBook('${loanOverviewDto.userLoanId}','${loanOverviewDto.title}','${loanOverviewDto.firstName}','${loanOverviewDto.lastName}','${dateFormatted}')" >Kwijt</button>`;
             });
-            console.log("It works!")
         })
-        .catch(error => console.log(error));
+        .catch(error => alert(error));
+}
+
+//MS: Make a JSON with the userLoanId, let the admin confirm the right book, return the book with a fetch and reload the page
+function lostBook(userLoanId, title, firstName, lastName, date) {
+    lostJSON = {
+        "userLoanId": userLoanId
+    }
+
+    confirm(`Weet je zeker dat je het volgende boek als kwijt wil markeren:
+ \n titel: ${title}
+ \n voornaam: ${firstName}
+ \n achternaam: ${lastName}
+ \n datum uitgeleend: ${date}`
+    );
+
+    fetch("http://localhost:8080/api/user/loan/lost", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(lostJSON)
+    })
+        .then(window.location.reload());
+}
+
+//MS: Make a JSON with the userLoanId, let the admin confirm the right book, mark the book as lost with a fetch and reload the page
+function returnBook(userLoanId, title, firstName, lastName, date) {
+    returnJSON = {
+        "userLoanId": userLoanId
+    }
+
+    confirm(`Weet je zeker dat je het volgende boek wilt inleveren:
+ \n titel: ${title}
+ \n voornaam: ${firstName}
+ \n achternaam: ${lastName}
+ \n datum uitgeleend: ${date}`
+    );
+
+    fetch("http://localhost:8080/api/user/loan/return", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(returnJSON)
+    })
+        .then(window.location.reload());
 }

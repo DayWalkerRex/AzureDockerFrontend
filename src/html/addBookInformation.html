@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Tag Dropdown</title>
+    <title>Boek Toevoegen</title>
 
     <link rel="stylesheet" href="styles.css">
     <script src="navbar.js"></script>
@@ -22,9 +22,9 @@
         <h2>Voeg een nieuwe titel toe:</h2>
 
         <!-- Form with all input needed for creating a bookInformation-->
-        <!-- <form action="javascript:addBookInformation();">  -->
-        <form>
-            <label for="input-image">Image</label> 
+        <form action="javascript:addBookInformation();"> 
+        <!-- <form> -->
+            <label for="input-image">Afbeelding</label> 
             <input type="url" id="input-image" required><br> 
             <label for="input-title">Titel</label> 
             <input type="text" id="input-title" required><br>
@@ -32,8 +32,7 @@
             <input type="text" id="input-author" required><br>
             <label for="input-isbn">ISBN</label>
             <input type="text" id="input-isbn" pattern="[0-9]{10,13}$" title="ISBN bestaat uit 10 tot 13 cijfers" required><br>
-            <label for="input-numCopies">Aantal kopieën</label> <!--OO-#214 input for number of book copies -->
-            <input type="number" id="input-numCopies" min=0 title="Moet minimaal nul zijn" required><br>
+           
 
             <!-- ST: Make a dropdown list framework that gives options from the tag list while typing -->
             <label for="tag-dropdown">Kies een tag:</label>
@@ -45,8 +44,16 @@
                 <label for="selected-tags">Geselecteerde tags:</label>
                 <div id="selected-tags"></div>
             </div>
+
+            <label for="input-numCopies">Aantal kopieën</label> <!--OO-#214 input for number of book copies -->
+            <input type="number" id="input-numCopies" min=0 title="Moet minimaal nul zijn" required><br>
                 
-            <button id="confirm-button">Bevestigen</button> 
+            <!-- <button id="confirm-button">Bevestigen</button>  -->
+            
+            <!-- <label for="input-numCopy">Aantal kopieën</label>
+            <input type="number" id="input-numCopy" min="0" title="Moet een getal zijn" required>
+            <br><br> -->
+            <input type="submit" value="Boek Toevoegen" id="add-book-btn">
         </form>
 
         <script src="addBookInformation.js"></script>
