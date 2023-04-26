@@ -77,7 +77,6 @@ function retrieveBooks() {
                 //TL: create a cell for archivedbook and show if book is archived or not
                 //JB: updated cell such that it shows "archiveren" if not archived and visa versa
                 let archivedBookCell = row.insertCell(7)
-                archivedBookCell.className = "bookOverview-click-cell";
                 archivedBookCell.className = "bookOverviewJsArchivedColumn";
                 let archiveButton = document.createElement('button');
                 if (bookInformation.archivedBook == false) {//JB: Show archive button

@@ -70,12 +70,6 @@ function changeVisbility() {
         //TL: if the user is on bookOverview -> do not show admin-columns
         var regexBookOverview = new RegExp("/bookOverview.html");
         if(document.URL.match(regexBookOverview)) {
-          //do not show if book is archived to user in bookoverview
-          document.getElementById("bookOverviewArchivedColumn").style.display = "none";
-          let archivedColumn = document.getElementsByClassName('bookOverviewJsArchivedColumn');
-          for (var i=0;i<archivedColumn.length;i+=1){
-            archivedColumn[i].style.display = 'none';
-          }
 
           //TL: turn off the ability to click the title
           let clickTarget = document.getElementsByClassName('bookOverview-click-cell');
@@ -98,6 +92,14 @@ function changeVisbility() {
             clickTarget3[i].style.cursor = 'default';
             clickTarget3[i].style.pointerEvents = 'none';
             clickTarget3[i].removeEventListener('click', goToPage, false)
+          }
+
+          //do not show if book is archived to user in bookoverview
+          document.getElementById("bookOverviewArchivedColumn").style.display = "none";
+          let archivedColumn = document.getElementsByClassName('bookOverviewJsArchivedColumn');
+          console.log(archivedColumn)
+          for (var i=0;i<archivedColumn.length;i+=1){
+            archivedColumn[i].style.display = 'none';
           }
         }
 
