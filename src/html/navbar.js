@@ -31,7 +31,7 @@ window.onload = (event) => {
 
 function changeVisbility() {
 
-  fetch("http://localhost:8080/api/user/token", {
+  fetch("http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/token", {
         method: 'Get',
         headers: {
             'Content-Type': 'application/json',

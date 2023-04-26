@@ -14,7 +14,7 @@ function getUserIdFromUrl(){
 
 function retrieveAndShowUser() {
     //ST: fetch data from user that was clicked on in userOverview page
-    fetch(`http://localhost:8080/api/user/${userId}`)
+    fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/${userId}`)
         .then(response => response.json())
         .then(data => {
             let role = "Gebruiker";
@@ -37,7 +37,7 @@ function retrieveAndShowUser() {
 
 function retrieveReservations() {//BN: retrieves reservations
     
-    fetch(`http://localhost:8080/api/reservation/${userId}`)
+    fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/reservation/${userId}`)
         .then(response => response.json())
         .then(data => {
             thisEmail = document.getElementById("email").textContent
@@ -76,7 +76,7 @@ function retrieveReservations() {//BN: retrieves reservations
 }
 
 function retrieveLoans() {//BN retrieves all loans of user
-    fetch(`http://localhost:8080/api/userloan/user/${userId}/loaned`)
+    fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/userloan/user/${userId}/loaned`)
         .then(response => response.json())
         .then(data => {
             let table = document.getElementById("book-possession-overview");
@@ -129,7 +129,7 @@ function archiveUser(){
     //ST: Set user status to archived
     //ST: Adding user to the database
     // Add userId to backend, check userId in browser
-    fetch(`http://localhost:8080/api/user/archive`, {
+    fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/archive`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -157,7 +157,7 @@ function archiveUser(){
 function listBooksToAssign() {//BN: when "toewijzen" is clicked, a list with users appears.
     document.getElementById('book-detail-assign-button').style.display = "none"
     document.getElementById('searchTerm').style.display = "initial"
-    fetch('http://localhost:8080/api/book/information/all')
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/information/all')
         .then(response => response.json())
         .then(data => {
 
@@ -224,7 +224,7 @@ function assignBookCopyToUser(button) {//BN: here a copy is selected to be assig
 }
 
 const getAvailableBookCopies = async (allCopies, allCopyNr, bookId)  => {//BN: gets the currently available book copies
-    try {await fetch(`http://localhost:8080/api/book/copy/${bookId}/available`)
+    try {await fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/copy/${bookId}/available`)
         .then(response => response.json())
         .then(data => {
             data.forEach(copy => {
@@ -250,7 +250,7 @@ function loanCopyToUser(bookId){//BN: does the actual posting to backend
             alert("Boek " + dropDownCopies.options[dropDownCopies.selectedIndex].text + " uitgeleend aan gebruiker")   //BN: hier moet de userloan geupdate worden met fetch
             confirmButton.style.display = "none"; //BN: When a copy is assigned. remove the ability to assign more
             selectedBooks.push(dropDownCopies.value)
-            fetch(`http://localhost:8080/api/userloan/${bookId}/${userId}/${dropDownCopies.value}/add`, {
+            fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/userloan/${bookId}/${userId}/${dropDownCopies.value}/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

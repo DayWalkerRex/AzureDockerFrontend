@@ -2,7 +2,7 @@ function listUsers() {
 
     console.log("listing Users")
 
-    fetch('http://localhost:8080/api/user/all')
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/all')
         .then(response => response.json())
         .then(data => {
                 var userDict = {};

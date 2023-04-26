@@ -1,7 +1,7 @@
 retrieveReservations();
 
 function retrieveReservations() {
-    fetch('http://localhost:8080/api/reservation/all')
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/reservation/all')
         .then(response => response.json())
         .then(data => {
             let table = document.getElementById("reservations");
@@ -115,13 +115,13 @@ function retrieveReservations() {
 
 //JB-#230: Get all available book copies for a book information
 function getAvailableBookCopies(bookInformationId) {
-    return fetch(`http://localhost:8080/api/book/copy/${bookInformationId}/available`)
+    return fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/copy/${bookInformationId}/available`)
         .then(response => response.json())
 }
 
 //JB-#230: Function to assign user loans
 function assignReservation(bookCopyId, bookInformationId, userId) {
-    fetch(`http://localhost:8080/api/userloan/${bookInformationId}/${userId}/${bookCopyId}/add`, {
+    fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/userloan/${bookInformationId}/${userId}/${bookCopyId}/add`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

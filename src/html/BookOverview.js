@@ -2,7 +2,7 @@
 retrieveBooks();
 
 function retrieveBooks() {
-    fetch('http://localhost:8080/api/book/information/all',
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/information/all',
         {
             method: 'GET',
             headers: {
@@ -98,7 +98,7 @@ function retrieveBooks() {
 
 function sendReservation(bookId) {
 
-    let reservationUrl = 'http://localhost:8080/api/reservation/add'
+    let reservationUrl = 'http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/reservation/add'
 
     //TL: assign reservation variables for dto and creates JSON object (usertoken and bookid)
     let userToken = localStorage.getItem('WT-Token')
@@ -136,7 +136,7 @@ function sendReservation(bookId) {
 
 // JB-#257: function to (de)archive a bookCopy
 function archiveBookInformation(bookId) {
-    fetch(`http://localhost:8080/api/book/information/${bookId}/archive`)
+    fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/information/${bookId}/archive`)
         .then(response => response.json())
         .then(data => {
             if (data == true) {

@@ -5,7 +5,7 @@ function retrieveUsers() {
 
     console.log("fetching Users")
 
-    fetch('http://localhost:8080/api/user/all')
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/all')
         .then(response => response.json())
         .then(data => {
             console.log('Data = ' + data)
@@ -57,7 +57,7 @@ function retrieveUsers() {
 //     console.log("isAdmin: "  + typeof(inputIsAdmin))
 //     console.log("user: " +  Object.values(user))
 
-//     fetch("http://localhost:8080/api/user/add", {
+//     fetch("http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/add", {
 //                 method: 'POST',
 //                 headers: {
 //                     'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ function listUsers() {
 
     console.log("listing Users")
 
-    fetch('http://localhost:8080/api/user/all')
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/all')
         .then(response => response.json())
         .then(data => {
             console.log('Data = ' + data)

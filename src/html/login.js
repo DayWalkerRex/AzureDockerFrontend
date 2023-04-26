@@ -9,7 +9,7 @@ function login() {
     }
 
     //OO: Post fetch to backend 
-    fetch("http://localhost:8080/api/user/login", {
+    fetch("http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/login", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

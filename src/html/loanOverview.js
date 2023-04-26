@@ -1,7 +1,7 @@
 loanOverview()
 
 function loanOverview() {
-    fetch('http://localhost:8080/api/userloan/loaned')
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/userloan/loaned')
         .then(response => response.json())
         .then(data => {
             let table = document.getElementById("loan-overview");
@@ -64,7 +64,7 @@ function lostBook(userLoanId, title, firstName, lastName, date) {
  \n datum uitgeleend: ${date}`
     );
 
-    fetch("http://localhost:8080/api/user/loan/lost", {
+    fetch("http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/loan/lost", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -87,7 +87,7 @@ function returnBook(userLoanId, title, firstName, lastName, date) {
  \n datum uitgeleend: ${date}`
     );
 
-    fetch("http://localhost:8080/api/user/loan/return", {
+    fetch("http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/loan/return", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

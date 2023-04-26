@@ -15,7 +15,7 @@ function getBookIdFromUrl() {//JB-#256: Made a function of it because it is used
 
 function retrieveAndShowBookInformation(bookId) {
     //TL: fetch data from book that was clicked on in library page
-    fetch(`http://localhost:8080/api/book/information/${bookId}`)
+    fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/information/${bookId}`)
         .then(response => response.json())
         .then(data => {
 
@@ -42,7 +42,7 @@ function retrieveAndShowBookInformation(bookId) {
 function listUsersToAssign() {//BN: when "toewijzen" is clicked, a list with users appears.
     document.getElementById('book-detail-assign-button').style.display = "none"
     document.getElementById('searchTerm').style.display = "initial"
-    fetch('http://localhost:8080/api/user/all')
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/user/all')
         .then(response => response.json())
         .then(data => {
 
@@ -109,7 +109,7 @@ function assignBookCopyToUser(button) {//BN: here a copy is selected to be assig
 
 const getAvailableBookCopies = async (allCopies, allCopyNr) => {//BN: gets the currently available book copies
     try {
-        await fetch(`http://localhost:8080/api/book/copy/${bookId}/available`)
+        await fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/copy/${bookId}/available`)
             .then(response => response.json())
             .then(data => {
                 data.forEach(copy => {
@@ -137,7 +137,7 @@ function loanCopyToUser() {//BN: does the actual posting to backend
             alert("Uitgeleend: Boek " + dropDownCopies.options[dropDownCopies.selectedIndex].text + " aan gebruiker " + userId)   //BN: hier moet de userloan geupdate worden met fetch
             confirmButton.style.display = "none"; //BN: When a copy is assigned. remove the ability to assign more
             selectedIndices.push(dropDownCopies.selectedIndex)
-            fetch(`http://localhost:8080/api/userloan/${bookId}/${userId}/${dropDownCopies.value}/add`, {
+            fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/userloan/${bookId}/${userId}/${dropDownCopies.value}/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -159,7 +159,7 @@ function addCopies(bookId) {
 
     //JB: confimation pop-up to confirm copies added
     if (confirm("Wil je " + newNumCopy + " kopie(ën) toevoegen?")) {
-        fetch(`http://localhost:8080/api/book/information/${bookId}/${newNumCopy}/copy`, {
+        fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/information/${bookId}/${newNumCopy}/copy`, {
             method: 'POST'
         })
             .then((response) => response.json()) //JB: Read body
@@ -183,7 +183,7 @@ function addCopies(bookId) {
 
 //JB-#256: Make table with all book copies
 function retrieveCopies() {
-    fetch(`http://localhost:8080/api/book/copy/${bookId}/all`)
+    fetch(`http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/copy/${bookId}/all`)
         .then(response => response.json())
         .then(data => {
             let table = document.getElementById("bookCopy");

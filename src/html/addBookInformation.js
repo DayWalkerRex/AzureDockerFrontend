@@ -7,7 +7,7 @@ renderDatalistTags();
 
 // MS & ST: Get tags from database in dropdown suggestions
 function renderDatalistTags() {
-    fetch('http://localhost:8080/api/tag/all')
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/tag/all')
         .then(response => response.json())
         .then(data => {
 
@@ -97,7 +97,7 @@ function addBookInformation() {
     }  
 
     // JB: Add bookInformation to the database
-    fetch("http://localhost:8080/api/book/information/add", {
+    fetch("http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/information/add", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
