@@ -78,10 +78,26 @@ function changeVisbility() {
           }
 
           //TL: turn off the ability to click the title
-          let titleColumn = document.getElementsByClassName('bookOverviewTitleColumn');
-          for (var i=0;i<titleColumn.length;i+=1){
-            titleColumn[i].style.cursor = 'default';
-            titleColumn[i].style.pointerEvents = 'none';
+          let clickTarget = document.getElementsByClassName('bookOverview-click-cell');
+          let clickTarget2 = document.getElementsByClassName('bookOverviewJsCopiesColumn');
+          let clickTarget3 = document.getElementsByClassName('bookOverviewJsAvailableColumn');
+
+          for (var i=0;i<clickTarget.length;i+=1){
+            clickTarget[i].style.cursor = 'default';
+            clickTarget[i].style.pointerEvents = 'none';
+            clickTarget[i].removeEventListener('click', goToPage, false)
+          }
+
+          for (var i=0;i<clickTarget2.length;i+=1){
+            clickTarget2[i].style.cursor = 'default';
+            clickTarget2[i].style.pointerEvents = 'none';
+            clickTarget2[i].removeEventListener('click', goToPage, false)
+          }
+
+          for (var i=0;i<clickTarget3.length;i+=1){
+            clickTarget3[i].style.cursor = 'default';
+            clickTarget3[i].style.pointerEvents = 'none';
+            clickTarget3[i].removeEventListener('click', goToPage, false)
           }
         }
 

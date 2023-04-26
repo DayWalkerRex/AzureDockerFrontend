@@ -24,6 +24,7 @@ function retrieveBooks() {
                 let row = table.insertRow();
                 let imageCell = row.insertCell(0);
                 let img = document.createElement("img");
+                imageCell.className = "bookOverview-click-cell";
                 imageCell.addEventListener("click", function () { goToPage(bookId) });//BN added clicking functionality to all non-button cells
 
                 img.src = bookInformation.imageUrl; //ST use the dynamic url from database for the image
@@ -32,25 +33,30 @@ function retrieveBooks() {
 
                 //TL: create a link from the title for a specific bookpage and pass bookId with URL
                 let titleCell = row.insertCell(1);
+                titleCell.className = "bookOverview-click-cell";
                 //titleCell.innerHTML = `<a class="bookOverviewTitleColumn" onclick = "this.href='bookDetail.html?bookId=' + '${bookId}'">${bookInformation.title}</a>`
                 titleCell.addEventListener("click", function () { goToPage(bookId) });
                 titleCell.innerHTML = bookInformation.title;
 
                 let authorCell = row.insertCell(2);
+                authorCell.className = "bookOverview-click-cell";
                 authorCell.addEventListener("click", function () { goToPage(bookId) });
                 authorCell.innerHTML = bookInformation.author;
 
                 let isbnCell = row.insertCell(3);
+                isbnCell.className = "bookOverview-click-cell";
                 isbnCell.addEventListener("click", function () { goToPage(bookId) });
                 isbnCell.innerHTML = bookInformation.isbn;
 
                 let numCopiesCell = row.insertCell(4);
+                numCopiesCell.className = "bookOverview-click-cell";
                 numCopiesCell.addEventListener("click", function () { goToPage(bookId) });
                 numCopiesCell.innerHTML = bookInformation.numCopies;
                 numCopiesCell.className = "bookOverviewJsCopiesColumn";
 
 
                 let numAvailableCell = row.insertCell(5);
+                numAvailableCell.className = "bookOverview-click-cell";
                 numAvailableCell.addEventListener("click", function () { goToPage(bookId) });
                 numAvailableCell.innerHTML = bookInformation.numAvailableCopies; //OO : #253 changed column data name
                 numAvailableCell.className = "bookOverviewJsAvailableColumn"; //OO : #253 changed column id name
@@ -59,6 +65,7 @@ function retrieveBooks() {
                 // TL: creates tagcell and assigns tags to object. Creates a list of keywordTags for each book. If list empty -> show "no tags" 
                 // TL: Check if bookTag is empty before join
                 let tagsCell = row.insertCell(6);
+                tagsCell.className = "bookOverview-click-cell";
                 tagsCell.addEventListener("click", function () { goToPage(bookId) });
                 let tags = Object(bookInformation.tags); // ST: tags is a property of bookInformation, do we still need endpoints in the TagController
 
@@ -70,6 +77,7 @@ function retrieveBooks() {
                 //TL: create a cell for archivedbook and show if book is archived or not
                 //JB: updated cell such that it shows "archiveren" if not archived and visa versa
                 let archivedBookCell = row.insertCell(7)
+                archivedBookCell.className = "bookOverview-click-cell";
                 archivedBookCell.className = "bookOverviewJsArchivedColumn";
                 let archiveButton = document.createElement('button');
                 if (bookInformation.archivedBook == false) {//JB: Show archive button
@@ -82,6 +90,7 @@ function retrieveBooks() {
 
                 //TL: create a cell for reservation button and creates button  
                 let reservationCell = row.insertCell(8)
+                reservationCell.className = "bookOverview-click-cell";
                 reservationCell.className = "ignore"; //BN#281 the buttons aren't included in search
                 let button = document.createElement('button');
                 button.setAttribute("id", "reservationButton")
