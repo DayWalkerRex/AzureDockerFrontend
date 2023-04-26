@@ -154,7 +154,7 @@ function loanCopyToUser() {//BN: does the actual posting to backend
 
 
 
-function addCopies(bookId) {
+function addCopies() {
     let newNumCopy = document.getElementById('newNumCopy').value;
 
     //JB: confimation pop-up to confirm copies added
