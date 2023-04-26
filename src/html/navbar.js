@@ -23,7 +23,9 @@ window.onload = (event) => {
 
   //get the element with id topnav (div element in html) and change it to be the navbar
   document.getElementById('topnav').innerHTML = navbar;
-  changeVisbility();
+  setTimeout(() => {
+    changeVisbility();
+}, 50);
 
 };
 
@@ -97,7 +99,6 @@ function changeVisbility() {
           //do not show if book is archived to user in bookoverview
           document.getElementById("bookOverviewArchivedColumn").style.display = "none";
           let archivedColumn = document.getElementsByClassName('bookOverviewJsArchivedColumn');
-          console.log(archivedColumn)
           for (var i=0;i<archivedColumn.length;i+=1){
             archivedColumn[i].style.display = 'none';
           }
