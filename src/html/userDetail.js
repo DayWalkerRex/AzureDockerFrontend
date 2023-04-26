@@ -157,7 +157,14 @@ function archiveUser(){
 function listBooksToAssign() {//BN: when "toewijzen" is clicked, a list with users appears.
     document.getElementById('book-detail-assign-button').style.display = "none"
     document.getElementById('searchTerm').style.display = "initial"
-    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/information/all')
+    fetch('http://wtlibrary.b7dacte6cff2a0cn.eastus.azurecontainer.io:8080/api/book/information/all',
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'token': localStorage.getItem('WT-Token')
+            }
+        })
         .then(response => response.json())
         .then(data => {
 
